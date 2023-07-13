@@ -16,6 +16,7 @@
                                 :icon="false"
                                 class="mb-3"
                             />
+                            <h1>DEPLOY QUICK</h1>
 
                             <div class="text-body-1 text-muted text-center mb-6">Sistemas</div>
 

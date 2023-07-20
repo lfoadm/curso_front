@@ -1,37 +1,29 @@
 <template>
   <v-app>
     <v-main>
-      <v-container>
-        <v-card
-        class="mx-auto"
-        max-width="344"
-        variant="outlined"
-        >
-        <v-card-item>
-          <div>
-            <div class="text-overline mb-1">
-              HOME
-            </div>
-            <div class="text-h6 mb-1">
-              Página inicial
-            </div>
-            <div class="text-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam qui, deserunt error asperiores voluptatem ipsa, vel facere tempora maiores sit dolorem, consectetur modi distinctio voluptas quos aliquam cum assumenda? Voluptates.</div>
-          </div>
-        </v-card-item>
-    
-        <v-card-actions>
-          <v-btn variant="outlined"
-          :to="{ name:'login' }"
-          >
-            Entrar
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-container>
+      <v-container class="bg-pink-lighten-1">
+        <v-card variant="outlined" color="dark" class="mx-auto bg-blue-darken-4" :title=titlePost :subtitle=userPost :text=textPost max-width="800">
+          <v-card-actions>
+            <v-btn icon class="mr-2">
+              <v-icon icon="mdi-heart-outline" />
+            </v-btn>
+            <VCardSubtitle><strong>1.590 </strong> Curtidas</VCardSubtitle>
+            <!-- <v-btn color="primary" variant="outlined" :to="{ name: 'login' }">
+              Curtir
+            </v-btn> -->
+          </v-card-actions>
+        </v-card>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-  //import HelloWorld from '@/components/HelloWorld.vue'
+
+import { ref } from 'vue';
+
+const titlePost = ref('Post do usuário');
+const userPost = ref('@usuário');
+const textPost = ref('LEANDRO Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam qui, deserunt error asperiores voluptatem ipsa, vel facere tempora maiores sit dolorem, consectetur modi distinctio voluptas quos aliquam cum assumenda? Voluptates.');
+
 </script>

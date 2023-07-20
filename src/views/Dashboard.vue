@@ -2,7 +2,7 @@
     <VContainer>
         Dashboard <br>
         <VBtn @click="subscribe()" :loading="loading">Assinar</VBtn>
-        
+        <h1 color="primary">Leandro Oliveira</h1>
     </VContainer>
 </template>
   
@@ -17,7 +17,6 @@ function subscribe() {
 
     const subscriptionStore = useSubscription()
     subscriptionStore.subscribe().then((response) => {
-        console.log('here');
         //console.log(response.stripe_url);
         if (response?.stripe_url) {
             window.location.href = response?.stripe_url

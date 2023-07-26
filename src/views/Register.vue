@@ -77,7 +77,8 @@
                                 Já é cadastrado?
                                 <RouterLink :to="{ name: 'login' }"
                                     class="text-primary text-decoration-none text-body-1 opacity-1 font-weight-medium pl-2">
-                                    Login</RouterLink>
+                                    Login
+                                </RouterLink>
                             </h6>
                         </v-card-item>
                     </v-card>

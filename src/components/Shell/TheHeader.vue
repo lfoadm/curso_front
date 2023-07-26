@@ -64,7 +64,6 @@
         <!-- </perfect-scrollbar> -->
       </div>
     </v-navigation-drawer>
-
     <v-app-bar elevation="0" height="70" color="#f1f1f1">
       <div class="d-flex align-center justify-space-between w-100">
         <div>
@@ -79,9 +78,6 @@
           </v-btn>
         </div>
         <div>
-          <!-- Upgrade button -->
-
-          <!-- User Profile -->
           <UserDropdown />
         </div>
       </div>

@@ -1,29 +1,56 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="bg-pink-lighten-1">
-        <v-card variant="outlined" color="dark" class="mx-auto bg-blue-darken-4" :title=titlePost :subtitle=userPost :text=textPost max-width="800">
-          <v-card-actions>
-            <v-btn icon class="mr-2">
-              <v-icon icon="mdi-heart-outline" />
-            </v-btn>
-            <VCardSubtitle><strong>1.590 </strong> Curtidas</VCardSubtitle>
-            <!-- <v-btn color="primary" variant="outlined" :to="{ name: 'login' }">
-              Curtir
-            </v-btn> -->
-          </v-card-actions>
-        </v-card>
+      <v-app-bar elevation="0" height="70" color="#efefef">
+        <div class="d-flex align-center justify-space-between w-100">
+          <VContainer >
+            <div>
+              <Logo />
+            </div>
+          </VContainer>
+        </div>
+      </v-app-bar>
+
+      <v-container>
+
+        <VCard v-if="!authStore.isLoggedIn">
+          <h2>Faça o
+            <RouterLink :to="{ name: 'login' }" class="text-primary">
+              Login
+            </RouterLink>
+            para postar suas jogadas!
+          </h2>
+        </VCard>
+
+        <Post v-if="authStore.isLoggedIn" />
+
+        <Card/>
       </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script setup>
+import Card from '@/components/Admin/Card.vue';
+import Post from '@/components/Admin/Post.vue';
+import Logo from '@/components/logo/Logo.vue';
+import axios from 'axios';
+import { ref, onMounted } from 'vue';
+import { useAuth } from '@/store/auth';
 
-import { ref } from 'vue';
+const posts = ref([]);
 
-const titlePost = ref('Post do usuário');
-const userPost = ref('@usuário');
-const textPost = ref('LEANDRO Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam qui, deserunt error asperiores voluptatem ipsa, vel facere tempora maiores sit dolorem, consectetur modi distinctio voluptas quos aliquam cum assumenda? Voluptates.');
+const authStore = useAuth()
+
+const getPosts = () => {
+    axios.get('api/posts')
+    .then((response) => (
+            posts.value = response.data.data
+        )
+    )
+}
+
+onMounted(() => getPosts());
+
 
 </script>

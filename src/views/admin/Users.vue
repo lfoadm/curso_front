@@ -32,6 +32,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                    
                 <tr
                     v-for="user in users"
                     :key="user.id"

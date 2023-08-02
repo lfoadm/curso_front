@@ -41,6 +41,13 @@
                 
                 <v-list-item prepend-icon="mdi-chart-line">Clientes</v-list-item>
                 
+                <v-list-item :to="{ name: 'groupUsers' }" rounded class="mb-1" color="primary">
+                  <template v-slot:prepend>
+                    <v-icon class="mr-2" icon="mdi-account-outline" color="#66cb66"/>
+                  </template>
+                  <v-list-item-title>Grupo de usuários</v-list-item-title>
+                </v-list-item>
+
                 <v-list-item :to="{ name: 'users' }" rounded class="mb-1" color="primary">
                   <template v-slot:prepend>
                     <v-icon class="mr-2" icon="mdi-account-outline" color="#66cb66"/>

@@ -98,6 +98,19 @@ const router = createRouter({
     },
 
     {
+      path: '/grupo-usuarios',
+      component: () => import('@/layouts/Dashboard.vue'),
+      beforeEnter: auth,
+      children: [
+        {
+          path: '',
+          name: 'groupUsers',
+          component: () => import('@/views/admin/groupUsers.vue'),
+        }
+      ]
+    },
+
+    {
       path: '/testes',
       component: () => import('@/layouts/Dashboard.vue'),
       beforeEnter: auth,
